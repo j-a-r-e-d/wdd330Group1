@@ -1,53 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Group 1 - Week 2</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css" />
-    <script type="text/javascript">
-      function displayText(){
-        let userText = document.getElementById('text').value;
-        document.getElementById('displayDiv').innerHTML = '<br><br>' + 'Text: ' + userText;
-        console.log(userText);
-      }
 
-      function displayGaussSum(){
-        //Must convert the textbox input(data type string) to number.
-        const userNumber = Number(document.getElementById('number1').value);
-        // Use Gauss' Formula: n(n+1)/2
-        const gaussFormula = userNumber * (userNumber + 1) / 2;
-        document.getElementById('displayDiv').innerHTML = '<br>' + 'Gauss\' Sum: ' + gaussFormula;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Group 1 - Week 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css" />
+  <script src="w02teamActivity.js"></script>
+  <script type="text/javascript">
+    function displayText() {
+      let userText = document.getElementById('text').value;
+      document.getElementById('displayDiv').innerHTML = '<br><br>' + 'Text: ' + userText;
+      console.log(userText);
+    }
 
-      function displaySum(){
-        const num1 = Number(document.getElementById('number1').value);
-        const num2 = Number(document.getElementById('number2').value);
-        document.getElementById('displayDiv').innerHTML = 'Sum: ' + (num1 + num2);
-      }
-    </script>
-  </head>
-  <body>
-    <header>
-        <h1>Week 2 Team Activity - JavaScript Functions</h1>
-    </header>
-    <section>
-      <a href="../index.html">Back to homepage</a>
-    </section>
-    <input type="text" name="text" id="text" placeholder="Write something!">
-    <input type="text" name="number1" id="number1" placeholder="Enter a whole number">
-    <input type="text" name="number2" id="number2" placeholder="Enter a whole number">
-    <section>
-      <button type="button" name="displayText" onclick="displayText()">What did you say to me!?</button>
-      <button type="button" name="GaussSum" onclick="displayGaussSum()">Sum all numbers to <em>n</em></button>
-      <button type="button" name="add" onclick="displaySum()">+</button>
-      <button type="reset" name="resetBtn">Reset</button>
-    </section>
-    <section>
-      <div id="displayDiv">
+    function displayGaussSum() {
+      //Must convert the textbox input(data type string) to number.
+      const userNumber = Number(document.getElementById('number1').value);
+      // Use Gauss' Formula: n(n+1)/2
+      const gaussFormula = userNumber * (userNumber + 1) / 2;
+      document.getElementById('displayDiv').innerHTML = '<br>' + 'Gauss\' Sum: ' + gaussFormula;
+    }
 
-      </div>
-    </section>
-  </body>
+    function displaySum() {
+      const num1 = Number(document.getElementById('number1').value);
+      const num2 = Number(document.getElementById('number2').value);
+
+      document.getElementById('displayDiv').innerHTML = 'Sum: ' + (num1 + num2);
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1>Week 2 Team Activity - JavaScript Functions</h1>
+  </header>
+  <section>
+    <a href="../index.html">Back to homepage</a>
+  </section>
+  <input type="text" name="text" id="text" placeholder="Write something!">
+  <input type="text" name="number1" id="number1" placeholder="Enter a whole number">
+  <input type="text" name="number2" id="number2" placeholder="Enter a whole number">
+  <section>
+    <button type="button" name="displayText" onclick="displayText()">What did you say to me!?</button>
+    <button type="button" name="GaussSum" onclick="displayGaussSum()">Sum all numbers to <em>n</em></button>
+    <button type="button" name="add" onclick="displaySum()">+</button>
+
+    
+
+    <button type="reset" name="resetBtn">Reset</button>
+
+    <select id="operator">
+      <option value="multiply">Multiply</option>
+      <option value="divide">Divide</option>
+      <option value="subtract">Subtract</option>
+      <option value="add">Add</option>
+    </select>
+    <button onclick="displayOperators()">Calculate</button>
+  </section>
+  <section>
+    <div id="displayDiv">
+
+    </div>
+  </section>
+</body>
+
 </html>
