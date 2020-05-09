@@ -85,8 +85,10 @@
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
     const inventorsBornIn1500s = inventors.filter(birthYear => {
-      return (birthYear.year >= 1500 && birthYear.year <= 1599);
-    });
+	    return (birthYear.year >= 1500 && birthYear.year <= 1599);
+	  });
+
+	  console.log(inventorsBornIn1500s);
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors' first and last names
