@@ -80,15 +80,24 @@
       ];
 
       // Array.prototype.filter()
+      // SYNTAX: array.filter(function(currentValue, index, arr), thisValue)
       // 1. Filter the list of inventors for those who were born in the 1500's
+      console.log(inventors.length);
+      const sixteenthCen = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year < 1600));
+      console.table(sixteenthCen);
 
       // Array.prototype.map()
+      // SYNTAX: array.map(function(currentValue, index, arr), thisValue)
       // 2. Give us an array of the inventors' first and last names
+      const fullNames = inventors.map(inventor => inventor.first + ' ' + inventor.last);
+      console.table(fullNames);
 
       // Array.prototype.sort()
+      // SYNTAX: array.sort(compareFunction)
       // 3. Sort the inventors by birthdate, oldest to youngest
 
       // Array.prototype.reduce()
+      // SYNTAX: array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
       // 4. How many years did all the inventors live?
 
       // 5. Sort the inventors by years lived
@@ -121,5 +130,8 @@
         'truck'
       ];
     </script>
+    <div id="display">
+
+    </div>
   </body>
 </html>
