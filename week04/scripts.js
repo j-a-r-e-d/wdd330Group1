@@ -1,4 +1,4 @@
-const top_left = document.querySelector(`#topLeft`);
+const gameBoard = document.querySelector(`#gameWrapper`);
 const oIcon = document.createElement(`img`);
 const xIcon = document.createElement(`img`);
 
@@ -6,9 +6,9 @@ oIcon.src = `o.png`;
 xIcon.src = `x.png`;
 
 
-function handleTouch(){
+function handleTouch(p){
     console.log("It Works");
-    top_left.appendChild(xIcon);
+    p.target.appendChild(xIcon);
 }
-top_left.addEventListener('touchend', handleTouch);
+gameBoard.addEventListener('touchend', handleTouch);
 
