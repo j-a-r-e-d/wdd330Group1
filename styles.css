@@ -10,3 +10,26 @@ body{
   font-family: 'Nunito', sans-serif;
   color: #777;
 }
+#gameWrapper{
+  background-color: #6F887D;
+  margin:1rem;
+  padding:2rem;
+  display:grid;
+  grid-template-columns: 250px 250px 250px;
+  grid-template-rows: 250px 250px 250px;
+
+}
+#gameWrapper div{
+  background-color: #B1C2B5;
+  border: solid 2px #3B434C;
+  width:250px;
+  height: 250px;
+  display:flex;
+  position: relative;
+}
+#gameWrapper img{
+  width: 70%;
+  position: absolute;
+  top: 2%;
+  left: 15%;
+}
