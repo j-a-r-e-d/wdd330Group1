@@ -1,6 +1,9 @@
 const player1 = 'X';
 const player2 = 'O';
 let player = player1;
+const colorDefault = "#000000";
+const colorWin = "#00900A";
+const colorLost = "#BE0000";
 
 function addEventListeners() {
     document.getElementById("topLeft").addEventListener("click", addPiece);
@@ -44,6 +47,7 @@ function resetBoard() {
     isPlayer1 = true;
     player = player1;
     document.getElementById("displayDiv").innerHTML = " Turn player " + (isPlayer1 ? "1" : "2") + " (" + (isPlayer1 ? player1 : player2) + ")";
+    document.getElementById("displayDiv").style.color = colorDefault;
 }
 
 function findWinner() {
@@ -58,29 +62,31 @@ function findWinner() {
     const bottomMiddle = document.getElementById("bottomMiddle").innerHTML;
     const bottomRight = document.getElementById("bottomRight").innerHTML;
 
-    if (topLeft != "" &&
-        topMiddle != "" &&
-        topRight != "" &&
-        middleLeft != "" &&
-        middle != "" &&
-        middleRight != "" &&
-        bottomLeft != "" &&
-        bottomMiddle != "" &&
-        bottomRight != ""
+    if (topLeft != "" && topLeft != "-" &&
+        topMiddle != "" && topMiddle != "-" &&
+        topRight != "" && topRight != "-" &&
+        middleLeft != "" && middleLeft != "-" &&
+        middle != "" && middle != "-" &&
+        middleRight != "" && middleRight != "-" &&
+        bottomLeft != "" && bottomLeft != "-" &&
+        bottomMiddle != "" && bottomMiddle != "-" &&
+        bottomRight != "" && bottomRight != "-"
     ) {
-        alert("GAME OVER");
-        resetBoard();
+        document.getElementById("displayDiv").innerHTML = ("Game Over!");
+        document.getElementById("displayDiv").style.color = colorLost;
+
     } else {
         //    AMY 1 2 3 topLeft topMiddle topRight
         if (topLeft != "" && topMiddle != "" && topRight != "") {
             if (topLeft === topMiddle && topLeft === topRight) {
                 if (topMiddle == player1) {
-                    alert("Player 1 wins!");
+                    document.getElementById("displayDiv").innerHTML = ("Player 1 wins!");
                 }
                 else {
-                    alert("Player 2 wins!");
+                    document.getElementById("displayDiv").innerHTML = ("Player 2 wins!");
                 }
-                resetBoard();
+                completeBoard();
+                document.getElementById("displayDiv").style.color = "#00900A";
             }
         }
 
@@ -88,12 +94,13 @@ function findWinner() {
         if (middleLeft != "" && middle != "" && middleRight != "") {
             if (middleLeft === middle && middleLeft === middleRight) {
                 if (middleLeft == player1) {
-                    alert("Player 1 wins!");
+                    document.getElementById("displayDiv").innerHTML = ("Player 1 wins!");
                 }
                 else {
-                    alert("Player 2 wins!");
+                    document.getElementById("displayDiv").innerHTML = ("Player 2 wins!");
                 }
-                resetBoard();
+                completeBoard();
+                document.getElementById("displayDiv").style.color = colorWin;
             }
         }
 
@@ -101,12 +108,13 @@ function findWinner() {
         if (bottomLeft != "" && bottomMiddle != "" && bottomRight != "") {
             if (bottomLeft === bottomMiddle && bottomLeft === bottomRight) {
                 if (bottomLeft == player1) {
-                    alert("Player 1 wins!");
+                    document.getElementById("displayDiv").innerHTML = ("Player 1 wins!");
                 }
                 else {
-                    alert("Player 2 wins!");
+                    document.getElementById("displayDiv").innerHTML = ("Player 2 wins!");
                 }
-                resetBoard();
+                completeBoard();
+                document.getElementById("displayDiv").style.color = colorWin;
             }
         }
 
@@ -114,12 +122,13 @@ function findWinner() {
         if (topLeft != "" && middleLeft != "" && bottomLeft != "") {
             if (topLeft === middleLeft && topLeft === bottomLeft) {
                 if (topLeft == player1) {
-                    alert("Player 1 wins!");
+                    document.getElementById("displayDiv").innerHTML = ("Player 1 wins!");
                 }
                 else {
-                    alert("Player 2 wins!");
+                    document.getElementById("displayDiv").innerHTML = ("Player 2 wins!");
                 }
-                resetBoard();
+                completeBoard();
+                document.getElementById("displayDiv").style.color = colorWin;
             }
         }
 
@@ -127,12 +136,13 @@ function findWinner() {
         if (topMiddle != "" && middle != "" && bottomMiddle != "") {
             if (topMiddle === middle && topMiddle === bottomMiddle) {
                 if (topMiddle == player1) {
-                    alert("Player 1 wins");
+                    document.getElementById("displayDiv").innerHTML = ("Player 1 wins");
                 }
                 else {
-                    alert("Plater 2 wins");
+                    document.getElementById("displayDiv").innerHTML = ("Plater 2 wins");
                 }
-                resetBoard();
+                completeBoard();
+                document.getElementById("displayDiv").style.color = colorWin;
             }
         }
 
@@ -140,12 +150,13 @@ function findWinner() {
         if (topRight != "" && middleRight != "" && bottomRight != "") {
             if (topRight === middleRight && topRight === bottomRight) {
                 if (topRight == player1) {
-                    alert("Player 1 wins");
+                    document.getElementById("displayDiv").innerHTML = ("Player 1 wins");
                 }
                 else {
-                    alert("Plater 2 wins");
+                    document.getElementById("displayDiv").innerHTML = ("Plater 2 wins");
                 }
-                resetBoard();
+                completeBoard();
+                document.getElementById("displayDiv").style.color = colorWin;
             }
         }
 
@@ -153,12 +164,13 @@ function findWinner() {
         if (topLeft != "" && middle != "" && bottomRight != "") {
             if (topLeft === middle && topLeft === bottomRight) {
                 if (topLeft == player1) {
-                    alert("Player 1 wins");
+                    document.getElementById("displayDiv").innerHTML = ("Player 1 wins");
                 }
                 else {
-                    alert("Plater 2 wins");
+                    document.getElementById("displayDiv").innerHTML = ("Plater 2 wins");
                 }
-                resetBoard();
+                completeBoard();
+                document.getElementById("displayDiv").style.color = colorWin;
             }
         }
 
@@ -166,15 +178,37 @@ function findWinner() {
         if (bottomLeft != "" && middle != "" && topRight != "") {
             if (bottomLeft === middle && bottomLeft === topRight) {
                 if (bottomLeft == player1) {
-                    alert("Player 1 wins");
+                    document.getElementById("displayDiv").innerHTML = ("Player 1 wins");
                 }
                 else {
-                    alert("Plater 2 wins");
+                    document.getElementById("displayDiv").innerHTML = ("Plater 2 wins");
                 }
-                resetBoard();
+                completeBoard();
+                document.getElementById("displayDiv").style.color = colorWin;
             }
         }
     }
+}
+
+function completeBoard() {
+    if (document.getElementById("topLeft").innerHTML == "")
+        document.getElementById("topLeft").innerHTML = "-";
+    if (document.getElementById("topMiddle").innerHTML == "")
+        document.getElementById("topMiddle").innerHTML = "-";
+    if (document.getElementById("topRight").innerHTML == "")
+        document.getElementById("topRight").innerHTML = "-";
+    if (document.getElementById("middleLeft").innerHTML == "")
+        document.getElementById("middleLeft").innerHTML = "-";
+    if (document.getElementById("middle").innerHTML == "")
+        document.getElementById("middle").innerHTML = "-";
+    if (document.getElementById("middleRight").innerHTML == "")
+        document.getElementById("middleRight").innerHTML = "-";
+    if (document.getElementById("bottomLeft").innerHTML == "")
+        document.getElementById("bottomLeft").innerHTML = "-";
+    if (document.getElementById("bottomMiddle").innerHTML == "")
+        document.getElementById("bottomMiddle").innerHTML = "-";
+    if (document.getElementById("bottomRight").innerHTML == "")
+        document.getElementById("bottomRight").innerHTML = "-";
 }
 
 
