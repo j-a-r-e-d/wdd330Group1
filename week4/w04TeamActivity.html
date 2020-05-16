@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>W04 Team Activity</title>
+
+    <!-- team activity css -->
+    <link rel="stylesheet" href="w04TeamActivity.css">
+    <script src="w04TeamActivity.js"></script>
+
+
+</head>
+
+<body onload="addEventListeners()">
+    <div id="main">
+        <div id="header">
+            <div id="logo_text">
+                <h1>Ponder: Team Activity</h1>
+                <h2>Week 04</h2>
+
+            </div>
+        </div>
+        <div id="site_content">
+            <h2>Tic-Tac-Toe</h2>
+            <hr>
+            <div id="content">
+                <div class="board">
+                    <div class="square" id="topLeft"></div>
+                    <div class="square" id="topMiddle"></div>
+                    <div class="square" id="topRight"></div>
+                    <div class="square" id="middleLeft"></div>
+                    <div class="square" id="middle"></div>
+                    <div class="square" id="middleRight"></div>
+                    <div class="square" id="bottomLeft"></div>
+                    <div class="square" id="bottomMiddle"></div>
+                    <div class="square" id="bottomRight"></div>
+                </div>
+
+                <input type="submit" onclick="resetBoard()" Value="reset" />
+                <div id="displayDiv">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <hr>
+        <a href="index.html">Week 04</a>
+        <p>Copyright&copy; 2020 | Portfolio | Lis Alves</p>
+    </div>
+</body>
+
+</html>
