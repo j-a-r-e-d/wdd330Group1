@@ -26,6 +26,8 @@ function addPiece(event) { //this = event.target
         this.innerHTML = player;
         document.getElementById("displayDiv").innerHTML = " Turn player " + (isPlayer1 ? "1" : "2") + " (" + (isPlayer1 ? player1 : player2) + ")";
     }
+
+    findWinner();
 }
 
 function resetBoard() {
@@ -44,45 +46,136 @@ function resetBoard() {
     document.getElementById("displayDiv").innerHTML = " Turn player " + (isPlayer1 ? "1" : "2") + " (" + (isPlayer1 ? player1 : player2) + ")";
 }
 
-function findWinner () {
-    const topLeft = document.getElementById('topLeft');
-    const middleLeft = document.getElementById('middleLeft');
-    const bottomLeft = document.getElementById('bottomLeft');
-    const topMiddle = document.getElementById('topMiddle');
-    const middle = document.getElementById('middle');
-    const bottomMiddle = document.getElementById('bottomMiddle');
-    const topRight = document.getElementById('topRight');
-    const middleRight = document.getElementById('middleRight');
-    const bottomRight = document.getElementById('bottomRight');
+function findWinner() {
 
-    if ((topLeft.innerHTML === topMiddle.innerHTML === topRight.innerHTML) || (middleLeft.innerHTML === middle.innerHTML === middleRight.innerHTML)) {
-        if (topMiddle.innerHTML === "X") {
-            alert("Player 1 wins!")    
-        } 
-        else {      
-            alert("Player 2 wins!")  
-         }
-        }
-    else if ((topMiddle.innerHTML === middle.innerHTML === bottomMiddle.innerHTML) || (topRight.innerHTML === middleRight.innerHTML === bottomRight.innerHTML))  {   
-        if (topMiddle.innerHTML === "X") {
-             alert("Player 1 wins!")    
-        }
-        else {
-            alert("Player 2 wins!")    
+    const topLeft = document.getElementById("topLeft").innerHTML;
+    const topMiddle = document.getElementById("topMiddle").innerHTML;
+    const topRight = document.getElementById("topRight").innerHTML;
+    const middleLeft = document.getElementById("middleLeft").innerHTML;
+    const middle = document.getElementById("middle").innerHTML;
+    const middleRight = document.getElementById("middleRight").innerHTML;
+    const bottomLeft = document.getElementById("bottomLeft").innerHTML;
+    const bottomMiddle = document.getElementById("bottomMiddle").innerHTML;
+    const bottomRight = document.getElementById("bottomRight").innerHTML;
+
+    if (topLeft != "" &&
+        topMiddle != "" &&
+        topRight != "" &&
+        middleLeft != "" &&
+        middle != "" &&
+        middleRight != "" &&
+        bottomLeft != "" &&
+        bottomMiddle != "" &&
+        bottomRight != ""
+    ) {
+        alert("GAME OVER");
+        resetBoard();
+    } else {
+        //    AMY 1 2 3 topLeft topMiddle topRight
+        if (topLeft != "" && topMiddle != "" && topRight != "") {
+            if (topLeft === topMiddle && topLeft === topRight) {
+                if (topMiddle == player1) {
+                    alert("Player 1 wins!");
+                }
+                else {
+                    alert("Player 2 wins!");
+                }
+                resetBoard();
             }
         }
-     // 7 8 9 bottomLeft bottomMiddle bottomRight
-        // 1 4 7 topLeft middleLeft bottomLeft
 
-        else if ((bottomLeft.innerHTML ===bottomMiddle.innerHTML === bottomRight.innerHTML) ||(topLeft.innerHTML ===topMiddle.innerHTML === bottomRight.innerHTML)){
-            if (bottomLeft.innerHTML ==="X"){
-            alert("Player 1 wins")
+        // AMY 4 5 6 middleLeft middle middleRight
+        if (middleLeft != "" && middle != "" && middleRight != "") {
+            if (middleLeft === middle && middleLeft === middleRight) {
+                if (middleLeft == player1) {
+                    alert("Player 1 wins!");
+                }
+                else {
+                    alert("Player 2 wins!");
+                }
+                resetBoard();
+            }
         }
-        else {
-            alert("Plater 2 wins")
+
+        // KATE 7 8 9 bottomLeft bottomMiddle bottomRight
+        if (bottomLeft != "" && bottomMiddle != "" && bottomRight != "") {
+            if (bottomLeft === bottomMiddle && bottomLeft === bottomRight) {
+                if (bottomLeft == player1) {
+                    alert("Player 1 wins!");
+                }
+                else {
+                    alert("Player 2 wins!");
+                }
+                resetBoard();
+            }
+        }
+
+        // Kate 1 4 7 topLeft middleLeft bottomLeft
+        if (topLeft != "" && middleLeft != "" && bottomLeft != "") {
+            if (topLeft === middleLeft && topLeft === bottomLeft) {
+                if (topLeft == player1) {
+                    alert("Player 1 wins!");
+                }
+                else {
+                    alert("Player 2 wins!");
+                }
+                resetBoard();
+            }
+        }
+
+        // DANIEL  2 5 8 topMiddle middle bottomMiddle
+        if (topMiddle != "" && middle != "" && bottomMiddle != "") {
+            if (topMiddle === middle && topMiddle === bottomMiddle) {
+                if (topMiddle == player1) {
+                    alert("Player 1 wins");
+                }
+                else {
+                    alert("Plater 2 wins");
+                }
+                resetBoard();
+            }
+        }
+
+        // DANIEL 3 6 9 topRight middleRight bottomRight
+        if (topRight != "" && middleRight != "" && bottomRight != "") {
+            if (topRight === middleRight && topRight === bottomRight) {
+                if (topRight == player1) {
+                    alert("Player 1 wins");
+                }
+                else {
+                    alert("Plater 2 wins");
+                }
+                resetBoard();
+            }
+        }
+
+        //LIS 1 5 9 topLeft middle bottomRight 
+        if (topLeft != "" && middle != "" && bottomRight != "") {
+            if (topLeft === middle && topLeft === bottomRight) {
+                if (topLeft == player1) {
+                    alert("Player 1 wins");
+                }
+                else {
+                    alert("Plater 2 wins");
+                }
+                resetBoard();
+            }
+        }
+
+        // LIS 7 5 3 bottomLeft middle topRight
+        if (bottomLeft != "" && middle != "" && topRight != "") {
+            if (bottomLeft === middle && bottomLeft === topRight) {
+                if (bottomLeft == player1) {
+                    alert("Player 1 wins");
+                }
+                else {
+                    alert("Plater 2 wins");
+                }
+                resetBoard();
+            }
+        }
     }
-}   
 }
-        
-            
+
+
 
