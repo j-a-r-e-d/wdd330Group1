@@ -43,3 +43,36 @@ function resetBoard() {
     player = player1;
     document.getElementById("displayDiv").innerHTML = " Turn player " + (isPlayer1 ? "1" : "2") + " (" + (isPlayer1 ? player1 : player2) + ")";
 }
+
+function findWinner () {
+    const topLeft = document.getElementById('topLeft');
+    const middleLeft = document.getElementById('middleLeft');
+    const bottomLeft = document.getElementById('bottomLeft');
+    const topMiddle = document.getElementById('topMiddle');
+    const middle = document.getElementById('middle');
+    const bottomMiddle = document.getElementById('bottomMiddle');
+    const topRight = document.getElementById('topRight');
+    const middleRight = document.getElementById('middleRight');
+    const bottomRight = document.getElementById('bottomRight');
+
+    if ((topLeft.innerHTML === topMiddle.innerHTML === topRight.innerHTML) || (middleLeft.innerHTML === middle.innerHTML === middleRight.innerHTML)) {
+        if (topMiddle.innerHTML === "X") {
+            alert("Player 1 wins!")    
+        } 
+        else {      
+            alert("Player 2 wins!")  
+         }
+        }
+    else if ((topMiddle.innerHTML === middle.innerHTML === bottomMiddle.innerHTML) || (topRight.innerHTML === middleRight.innerHTML === bottomRight.innerHTML))  {   
+        if (topMiddle.innerHTML === "X") {
+             alert("Player 1 wins!")    
+        }
+        else {
+            alert("Player 2 wins!")    
+            }
+        }
+        
+}
+        
+            
+
