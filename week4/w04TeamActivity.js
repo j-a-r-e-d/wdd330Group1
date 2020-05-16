@@ -71,7 +71,17 @@ function findWinner () {
             alert("Player 2 wins!")    
             }
         }
-        
+     // 7 8 9 bottomLeft bottomMiddle bottomRight
+        // 1 4 7 topLeft middleLeft bottomLeft
+
+        else if ((bottomLeft.innerHTML ===bottomMiddle.innerHTML === bottomRight.innerHTML) ||(topLeft.innerHTML ===topMiddle.innerHTML === bottomRight.innerHTML)){
+            if (bottomLeft.innerHTML ==="X"){
+            alert("Player 1 wins")
+        }
+        else {
+            alert("Plater 2 wins")
+    }
+}   
 }
         
             
