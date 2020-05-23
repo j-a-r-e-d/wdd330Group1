@@ -5,3 +5,8 @@ window.addEventListener('load', () => {
   myHikesController.showHikeList();
 });
 
+// window.addEventListener('load', () => {
+//   myHikesController.showOneHike('Bechler Falls');
+// });
+
+
