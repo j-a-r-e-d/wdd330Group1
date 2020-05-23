@@ -46,3 +46,10 @@ body {
   .light h3 {
     margin-bottom: -0.5em;
   }
+
+  .image{
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+    width: 100%;
+}

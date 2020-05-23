@@ -24,7 +24,7 @@ export default class HikesController {
     this.hikesView.renderOneHikeFull(
       this.parentElement,
       hike
-    ).ontouchend = () => {
+    ).onclick = () => {
       this.showHikeList();
     };
   }

@@ -23,7 +23,7 @@ class HikesView {
     item.innerHTML = ` <h2>${hike.name}</h2>
     <div class="image"><img src="${imgBasePath}${hike.imgSrc}" alt="${
       hike.imgAlt
-    }"></div>
+      }"></div>
     <div>
             <div>
                 <h3>Distance</h3>
@@ -43,7 +43,7 @@ class HikesView {
     const item = document.createElement('li');
     item.innerHTML = ` 
         
-            <img src="${imgBasePath}${hike.imgSrc}" alt="${hike.imgAlt}">
+    <div class="image"><img src="${imgBasePath}${hike.imgSrc}" alt="${hike.imgAlt}"></div>
             <h2>${hike.name}</h2>
             <div>
                 <h3>Distance</h3>
