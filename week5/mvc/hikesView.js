@@ -1,5 +1,5 @@
 // the dataset only has a relative path in it...we need more to find the images...so we have a path variable below. Why isn't this in the model object? What advantages or disadvantages are there to having it here instead of as part of the View object?
-const imgBasePath = '//byui-cit.github.io/cit261/examples/';
+const imgBasePath = './img/';
 
 // since we have multiple methods we need to export, it would make sense to group them together with an object of some sort. This could be as simple as an object literal...or more complex as a class.
 
