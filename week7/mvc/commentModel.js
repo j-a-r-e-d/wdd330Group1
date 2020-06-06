@@ -16,12 +16,10 @@ class CommentModel {
     }
 
     getAllComments() {
-        //const commentList = [new CommentModel(1, 'Test'), new CommentModel(2, 'Test2'), new CommentModel(3, 'Test3'), new CommentModel(1, 'Test1')];
         return this.commentList;
     }
 
     addComment(hikeId, content) {
-        //
         const newComment = new CommentModel(hikeId, content);
         this.commentList.push(newComment);
         this.writeToLS('comments', this.commentList);
@@ -46,7 +44,7 @@ export default class Comment {
         this.view = new CommentView();
     }
     addCommentListener(hikeId) {
-        document.querySelector('#add-comment').ontouchend = () => {
+        document.querySelector('#add-comment').onclick = () => {
             const content = document.querySelector('#comment-entry').value;
             this.model.addComment(hikeId, content);
         }
