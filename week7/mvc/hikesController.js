@@ -20,6 +20,7 @@ export default class HikesController {
     this.hikesView.renderHikeList(this.parentElement, hikeList, commentList);
     // after the hikes have been rendered...add our listener
     this.addHikeListener();
+    document.querySelector('.addComment').style.display = 'none';
   }
   showOneHike(hikeName) {
     const hike = this.hikeModel.getHikeByName(hikeName);
@@ -34,6 +35,7 @@ export default class HikesController {
         this.comment.displayCommentView(commentBlock);
         // Attach comment to a specific hike
         this.comment.addCommentListener(hike.hikeId);
+        
   }
   // in order to show the details of a hike ontouchend we will need to attach a listener AFTER the list of hikes has been built. The function below does that.
   addHikeListener() {

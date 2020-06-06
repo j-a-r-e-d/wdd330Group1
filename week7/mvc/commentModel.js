@@ -30,7 +30,7 @@ class CommentView {
 
     renderCommentUI(element) {
         element.innerHTML = `
-            <div class="add-comment"
+            <div class="addComment"
                 <h2>Add a comment</h2>
                 <input type="text" id="comment-entry">
                 <button id="add-comment">Comment</button>
@@ -47,6 +47,7 @@ export default class Comment {
         document.querySelector('#add-comment').onclick = () => {
             const content = document.querySelector('#comment-entry').value;
             this.model.addComment(hikeId, content);
+            document.querySelector('#comment-entry').value = '';
         }
     }
 
