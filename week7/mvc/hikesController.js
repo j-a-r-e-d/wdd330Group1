@@ -1,7 +1,7 @@
 // The controller needs access to both the model and the view...so let's import them
 import HikeModel from './hikeModel.js';
 import HikesView from './hikesView.js';
-
+import CommentModel from './commentModel.js';
 // Just like with the view we should organize the functions we need to our controller. Let's use a class for this one
 
 export default class HikesController {
@@ -10,12 +10,14 @@ export default class HikesController {
     this.parentElement = document.getElementById(parentId);
     this.hikeModel = new HikeModel();
     this.hikesView = new HikesView(parentId);
+    this.comment = new CommentModel(); // instantiate new comment
   }
   showHikeList() {
     // the list of hikes will come from the model now...
     const hikeList = this.hikeModel.getAllHikes();
+    const commentList = this.comment.getCommentList();
     // send the list of hikes and the element we would like those placed into to the view.
-    this.hikesView.renderHikeList(this.parentElement, hikeList);
+    this.hikesView.renderHikeList(this.parentElement, hikeList, commentList);
     // after the hikes have been rendered...add our listener
     this.addHikeListener();
   }
@@ -27,10 +29,14 @@ export default class HikesController {
     ).onclick = () => {
       this.showHikeList();
     };
+    const commentBlock = document.querySelector("#comments");
+        // display comment form
+        this.comment.displayCommentView(commentBlock);
+        // Attach comment to a specific hike
+        this.comment.addCommentListener(hike.hikeId);
   }
   // in order to show the details of a hike ontouchend we will need to attach a listener AFTER the list of hikes has been built. The function below does that.
   addHikeListener() {
-    console.log(`In addHikeListener()!`)
     // We need to loop through the children of our list and attach a listener to each, remember though that children is a nodeList...not an array. So in order to use something like a forEach we need to convert it to an array.
     const childrenArray = Array.from(this.parentElement.children);
     childrenArray.forEach(child => {

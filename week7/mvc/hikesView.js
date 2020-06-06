@@ -4,7 +4,7 @@ const imgBasePath = './img/';
 // since we have multiple methods we need to export, it would make sense to group them together with an object of some sort. This could be as simple as an object literal...or more complex as a class.
 
 class HikesView {
-  renderHikeList(hikeListElement, hikeList) {
+  renderHikeList(hikeListElement, hikeList, commentList) {
     // I decided to let the controller handle where the list gets placed. So instead of getting the element here in the function, when I created the view I decided to pass the target element in.
     // const hikeListElement = document.getElementById('hikes');
 
@@ -12,10 +12,10 @@ class HikesView {
     // the list of hikes doesn't exist here in the view either...so I've passed that in as well.
     hikeList.forEach(hike => {
       // notice the call to 'this' below. 'this' is like adding './' at the beginning of a path. It helps the computer find things.
-      hikeListElement.appendChild(this.renderOneHikeLight(hike));
+      hikeListElement.appendChild(this.renderOneHikeLight(hike, commentList));
     });
   }
-  renderOneHikeLight(hike) {
+  renderOneHikeLight(hike, commentList) {
     const item = document.createElement('li');
     item.classList.add('light');
     // setting this to make getting the details for a specific hike easier later.
@@ -33,6 +33,13 @@ class HikesView {
                 <h3>Difficulty</h3>
                 <p>${hike.difficulty}</p>
             </div>
+            <h3>Comments</h3>
+                ${commentList.map(comment => {
+                    console.log(hike.id);
+                    if (comment.hikeId === hike.hikeId) {
+                        return `<p>${comment.content}</p>`;
+                    }
+                }).join('')}
     </div>`;
 
     return item;
