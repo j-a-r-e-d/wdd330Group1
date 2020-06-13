@@ -30,8 +30,8 @@ function showShips(ships) {
     outputList.innerHTML = "";
     for (let i = 0; i < ships.length; i++) {
         let outputDiv = outputList.appendChild(createElement("div", ships[i].name, "starships"));
-        outputDiv.addEventListener("click", details);
-        outputDiv.setAttribute("id", ships[i].name)
+        outputDiv.addEventListener("click", details, false);
+        outputDiv.setAttribute("id", ships[i].name);
         starShipsArray.push(ships[i]);
     }
 }
@@ -54,6 +54,7 @@ function details(event) {
     buttonClose.setAttribute("type", "submit");
     buttonClose.setAttribute("value", "x");
     buttonClose.addEventListener("click", close);
+    target.removeEventListener("click", details);
 }
 
 function close() {
