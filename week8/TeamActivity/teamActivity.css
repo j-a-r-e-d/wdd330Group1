@@ -1,0 +1,32 @@
+main{
+    text-align: center;
+    margin: 1em;
+}
+
+#outputList .container {
+    background:#B0C4DE;
+    width:450px;
+    margin: auto;
+    padding:10px;
+    text-align:center;
+    -moz-border-radius:7px;
+    -webkit-border-radius:7px;
+     border-radius:7px;
+}
+
+input[type=submit] {
+    padding:5px 15px; 
+    background:#ccc; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    margin: 5px;
+
+}
+
+.centralizedItems{
+    text-align: center;
+    padding: 5px;
+}
+
