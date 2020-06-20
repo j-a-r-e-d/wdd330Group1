@@ -25,12 +25,10 @@ function removeTransitionState(event) {
 }
 
 function moveKey(key) {
-    var pixel = parseInt(key.style.transform.substring(11, 13));
-    if (key.style.transform == "" || key.style.transform == "translateY(0px)") {
-        key.style.transform = 'translateY(10px)';
-    }
-    else if (pixel != 90) {
-        key.style.transform = `translateY(${ pixel + 10}px)`;
+    var pixel = isNaN(parseInt(key.style.transform.substring(11, 13))) ? 0 : parseInt(key.style.transform.substring(11, 13));
+
+    if (pixel != 90) {
+        key.style.transform = `translateY(${pixel + 10}px)`;
     }
     else {
         key.style.transform = "translateY(0px)";
